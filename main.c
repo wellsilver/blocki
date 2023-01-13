@@ -13,7 +13,6 @@ int main() {
     int loop,loop2;
     // initialize screen
     struct rgb screen[200][200];
-    struct voxel *voxels = (struct voxel *) malloc(sizeof(struct voxel)*1); // all our voxels
     voxels[0].pos = newvec3(1,0,0);
     voxels[0].size = newvec3(3,3,3);
     voxels[0].color = rgbnew(255,255,255);
