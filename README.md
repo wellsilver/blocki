@@ -1,9 +1,13 @@
 # blocki
 
-roblox ripoff!!
+voxel renderer
 
 todo:
 
 | name | status |
 | ---- | ------ |
-| voxel renderer | 🚧 |
+| actual rendering | ✅ |
+| camera | 🚧 |
+| good API | ❌ |
+| most operating systems support | ❌ |
+| option to use opencl to shove on GPU | ❌ |
