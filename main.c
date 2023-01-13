@@ -35,6 +35,7 @@ struct rgb rgbnew(int r,int g,int b) {
 struct voxel {
     // vec3 size;
     struct vec3 pos;
+    struct vec3 size;
     struct rgb color;
 };
 
@@ -48,8 +49,12 @@ int ispointinvoxel(struct vec3 point,struct voxel *voxels,int voxel_size) {
     int loop;
     for (loop=0;loop<voxel_size;loop++) {// search throguh all voxels to check if our ray intersects with one
         // check if the ray is in a voxel
-        if (voxels[loop].pos.x==point.x && voxels[loop].pos.y==point.y && voxels[loop].pos.z==point.z) { 
-            return loop; // return ID of voxel
+        if (voxels[loop].pos.x <= point.x && voxels[loop].pos.x+voxels[loop].size.x >= point.x) { // if its in the x
+            if (voxels[loop].pos.y <= point.y && voxels[loop].pos.y+voxels[loop].size.y >= point.y) {
+                if (voxels[loop].pos.z <= point.z && voxels[loop].pos.z+voxels[loop].size.z >= point.z) {
+                    return loop;
+                }
+            }
         }
     }
     return -1; // return nothing
@@ -95,6 +100,7 @@ int main() {
     struct rgb screen[200][200];
     struct voxel *voxels = (struct voxel *) malloc(sizeof(struct voxel)*1); // all our voxels
     voxels[0].pos = newvec3(1,0,0);
+    voxels[0].size = newvec3(3,3,3);
     voxels[0].color = rgbnew(255,255,255);
     int voxel_size = 1;
     int close = 0;
