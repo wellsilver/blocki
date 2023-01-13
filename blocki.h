@@ -94,10 +94,12 @@ void makescreen(struct rgb a[200][200],struct voxel *voxels,int voxel_size) {
     }
 }
 
-void new_voxel(struct vec3 pos,struct vec3 size,struct rgb color) {
+// makes a new voxel and returns its ID
+int new_voxel(struct vec3 pos,struct vec3 size,struct rgb color) {
     voxel_size++;
     voxels = (struct voxel *) realloc(voxels,sizeof(struct voxel)*voxel_size);
     voxels[voxel_size-1].pos = pos;
     voxels[voxel_size-1].size = size;
     voxels[voxel_size-1].color = color;
+    return voxel_size - 1;
 }
