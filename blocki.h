@@ -83,7 +83,7 @@ struct rgb raycast(struct vec3 start,struct vec3 velocity) {
     return voxels[rslt].color; // use the ID that ispointinvoxel() returned to give a voxels RGB
 }
 
-void makescreen(struct rgb a[200][200],struct voxel *voxels,int voxel_size) {
+void makescreen(struct rgb a[200][200]) {
     // make 200*200 image
     int loop,loop2;
     // actually place pixels onto the image by using raycast()

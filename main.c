@@ -13,9 +13,7 @@ int main() {
     int loop,loop2;
     // initialize screen
     struct rgb screen[200][200];
-    voxels[0].pos = newvec3(1,0,0);
-    voxels[0].size = newvec3(3,3,3);
-    voxels[0].color = rgbnew(255,255,255);
+    new_voxel(newvec3(1,0,0),newvec3(3,3,3),rgbnew(255,255,255));
     int voxel_size = 1;
     int close = 0;
     
@@ -31,7 +29,7 @@ int main() {
         }
         SDL_RenderClear(render);
         // render here
-        makescreen(screen,voxels,voxel_size);
+        makescreen(screen);
         for (loop=0;loop<200;loop++) { //loop our x
             for (loop2=0;loop2<200;loop2++) { // loop2 our y
                 SDL_SetRenderDrawColor(render, screen[loop][loop2].r, screen[loop][loop2].b, screen[loop][loop2].g, 255);
